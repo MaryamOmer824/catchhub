@@ -27,43 +27,27 @@ body {
     text-align: center;
 }
 
-/* STYLISH CURVED GREY/WHITE WAVE BACKGROUNDS */
+/* STYLISH CURVED BACKGROUNDS */
 .bg-wave-layer-top {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 950px;
-    background: #f4f5f7;
-    clip-path: ellipse(85% 65% at 75% 30%);
-    z-index: 1;
+    position: absolute; top: 0; right: 0; width: 100%; height: 950px;
+    background: #f4f5f7; clip-path: ellipse(85% 65% at 75% 30%); z-index: 1;
 }
 
 .bg-wave-layer-middle {
-    position: absolute;
-    top: 900px;
-    left: 0;
-    width: 100%;
-    height: 1100px;
-    background: #ffffff;
-    background-image: radial-gradient(circle at -20% 40%, #f4f5f7 0%, #f4f5f7 50%, transparent 50%);
-    z-index: 1;
+    position: absolute; top: 900px; left: 0; width: 100%; height: 1100px;
+    background: #ffffff; background-image: radial-gradient(circle at -20% 40%, #f4f5f7 0%, #f4f5f7 50%, transparent 50%); z-index: 1;
 }
 
 .bg-wave-layer-bottom {
-    position: absolute;
-    bottom: 450px;
-    right: 0;
-    width: 100%;
-    height: 1200px;
-    background: transparent;
-    background-image: radial-gradient(circle at 120% 50%, #f4f5f7 0%, #f4f5f7 53%, transparent 53%);
-    z-index: 1;
+    position: absolute; bottom: 450px; right: 0; width: 100%; height: 1200px;
+    background: transparent; background-image: radial-gradient(circle at 120% 50%, #f4f5f7 0%, #f4f5f7 53%, transparent 53%); z-index: 1;
 }
 
-/* GRID LAYOUT FOR MATCHING DESIGN */
+/* GRID LAYOUT (FOR LAPTOP) */
 .grid-container {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; /* Elements ko upar neeche hone se rokta hai */
     align-items: center;
     justify-content: space-between;
     gap: 60px;
@@ -200,10 +184,7 @@ body {
     color: #3897f0;
     text-decoration: none;
     font-weight: 600;
-}
-
-.contact-link:hover {
-    text-decoration: underline;
+    display: inline-block;
 }
 
 .footer-brand {
@@ -225,20 +206,96 @@ body {
     color: #444444;
 }
 
-/* RESPONSIVE HANDLING FOR SMALL SCREEN CHECKING */
+/* ============================================================
+   INTERESTING FLOAT VIBE EFFECT ON CLICK/TAP
+   ============================================================ */
+.float-element, .download-badges a, .contact-link, .section-mockup {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    display: inline-block;
+    will-change: transform;
+}
+
+/* Jab click ya mobile par tap karenge to thoda float vibe aayegi */
+.float-element:active, .download-badges a:active, .contact-link:active, .section-mockup:active {
+    transform: translateY(-10px) scale(1.04) !important;
+}
+
+
+/* ============================================================
+   STRICT RESPONSIVE HANDLING: ABSOLUTE SIDE-BY-SIDE FOR PHONE
+   ============================================================ */
 @media (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Strict Side-by-Side configuration */
     .grid-container {
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 50px;
+        display: flex !important;
+        flex-direction: row !important; /* Force Horizontal alignment */
+        flex-wrap: nowrap !important;   /* Kisi bhi soorat me niche tutne nahi dega */
+        gap: 15px !important;
+        align-items: center;
     }
-    .text-left-align {
-        text-align: center;
+
+    /* 50% - 50% strict width sharing */
+    .hero-left, .hero-right, .section-content, .section-image {
+        flex: 0 0 50% !important; /* 50% static size, no shrinking or expanding out of bounds */
+        max-width: 50% !important;
+        width: 50% !important;
     }
-    .hero-right, .section-image {
-        justify-content: center;
+
+    /* Auto responsive content resizing */
+    .main-logo {
+        width: 100%;
+        max-width: 140px;
+        margin-bottom: 10px;
     }
+
+    .hero-title {
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        margin-bottom: 4px;
+    }
+
+    .hero-subtitle {
+        font-size: 10px;
+        margin-bottom: 15px;
+    }
+
+    .section-title {
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+    }
+
+    .section-text {
+        font-size: 11px;
+        line-height: 1.3;
+    }
+
+    /* Badges adjustments */
     .download-badges {
-        justify-content: center;
+        gap: 6px;
+    }
+
+    .download-badges img {
+        height: 24px;
+        width: auto;
+    }
+
+    .section-mockup {
+        width: 100% !important;
+        height: auto;
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+
+    .vectors-icon-bar {
+        max-width: 100%;
+        height: auto;
     }
 }
