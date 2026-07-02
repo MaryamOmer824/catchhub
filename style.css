@@ -1,0 +1,244 @@
+/* RESET & BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* STYLISH CURVED GREY/WHITE WAVE BACKGROUNDS */
+.bg-wave-layer-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 950px;
+    background: #f4f5f7;
+    clip-path: ellipse(85% 65% at 75% 30%);
+    z-index: 1;
+}
+
+.bg-wave-layer-middle {
+    position: absolute;
+    top: 900px;
+    left: 0;
+    width: 100%;
+    height: 1100px;
+    background: #ffffff;
+    background-image: radial-gradient(circle at -20% 40%, #f4f5f7 0%, #f4f5f7 50%, transparent 50%);
+    z-index: 1;
+}
+
+.bg-wave-layer-bottom {
+    position: absolute;
+    bottom: 450px;
+    right: 0;
+    width: 100%;
+    height: 1200px;
+    background: transparent;
+    background-image: radial-gradient(circle at 120% 50%, #f4f5f7 0%, #f4f5f7 53%, transparent 53%);
+    z-index: 1;
+}
+
+/* GRID LAYOUT FOR MATCHING DESIGN */
+.grid-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* HERO SECTION */
+.hero-section {
+    padding: 90px 0 120px 0;
+    position: relative;
+}
+
+.hero-left {
+    flex: 1.1;
+    max-width: 550px;
+}
+
+.hero-right {
+    flex: 0.9;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.main-logo {
+    width: 290px;
+    height: auto;
+    display: block;
+    margin-bottom: 35px;
+}
+
+.hero-title {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+}
+
+.hero-subtitle {
+    font-size: 21px;
+    font-weight: 400;
+    color: #6c757d;
+    margin-bottom: 50px;
+}
+
+.download-badges {
+    display: flex;
+    gap: 16px;
+}
+
+.download-badges img {
+    height: 52px;
+    width: auto;
+}
+
+.section-mockup {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* GENERAL CONTENT SECTIONS */
+.section {
+    padding: 130px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.section-content {
+    flex: 1;
+    max-width: 520px;
+}
+
+.text-left-align {
+    text-align: left;
+}
+
+.section-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+}
+
+.section-text {
+    font-size: 23px;
+    font-weight: 300;
+    line-height: 1.45;
+    color: #666666;
+}
+
+/* IN FUTURE VECTOR SPECIFICS */
+.vectors-icon-bar {
+    max-width: 680px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* FOOTER SECTION */
+.main-footer {
+    background-color: #f4f5f7;
+    padding: 90px 0 60px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-download-text {
+    font-size: 21px;
+    font-weight: 500;
+    color: #2b2b2b;
+    margin-bottom: 25px;
+}
+
+.footer-badges {
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.contact-text {
+    font-size: 18px;
+    font-weight: 400;
+    color: #555555;
+    margin-bottom: 55px;
+}
+
+.contact-link {
+    color: #3897f0;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+.footer-brand {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo {
+    width: 42px;
+    height: auto;
+    margin-bottom: 12px;
+}
+
+.brand-name {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #444444;
+}
+
+/* RESPONSIVE HANDLING FOR SMALL SCREEN CHECKING */
+@media (max-width: 992px) {
+    .grid-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 50px;
+    }
+    .text-left-align {
+        text-align: center;
+    }
+    .hero-right, .section-image {
+        justify-content: center;
+    }
+    .download-badges {
+        justify-content: center;
+    }
+}
